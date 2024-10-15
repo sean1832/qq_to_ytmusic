@@ -1,0 +1,5 @@
+# Copy & paste your QQ-music playlist urls. Use line break to seperate urls.
+
+# Sample playlists.
+https://y.qq.com/n/ryqq/playlist/2065383105
+https://y.qq.com/n/ryqq/playlist/7451573651
