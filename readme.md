@@ -6,6 +6,8 @@
 ## 概述 🚀
 抓取QQ音乐播放列表，使用 [`ytmusicapi`](https://github.com/sigma67/ytmusicapi) 搜索并匹配歌曲，并将其转移到YT音乐。
 
+> 如果此项目有对你帮助，请考虑给个星⭐ :)
+
 ## 需求 📋
 - Python 3
 - Google帐户

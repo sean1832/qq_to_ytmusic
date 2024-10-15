@@ -7,6 +7,8 @@ Easily transfer your QQ-Music playlist to a Youtube Music playlist.
 ## Overview 🚀
 Fetch QQ-Music playlists, search & match songs with Youtube Music using [`ytmusicapi`](https://github.com/sigma67/ytmusicapi), and transfer them to Youtube Music.
 
+> if you find this project helpful, please consider a star⭐ :)
+
 ## Requirements 📋
 - Python 3
 - Google Account
