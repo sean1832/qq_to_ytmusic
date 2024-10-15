@@ -21,7 +21,7 @@ Fetch QQ-Music playlists, search & match songs with Youtube Music using [`ytmusi
 > When you run the script for the first time, it will ask you to login to your Google account. 
 > After logging in, it will generate a `oauth.json` under the root directory. **Go back to the terminal and press `Enter` to continue.**
 
-> [!NOTE] qqmusic-urls.txt Example:
+> [!NOTE]
 > Copy and paste the links in the [`qqmusic-urls.txt`](qqmusic-urls.txt) file.
 > Add multiple links in new lines:
 > ```txt

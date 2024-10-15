@@ -20,7 +20,7 @@
 > 第一次运行脚本时，会要求你登录你的Google帐户。登录后，它将在根目录下生成`oauth.json`。
 > **这时候回到终端并按 `Enter` 继续。**
 
-> [!NOTE] qqmusic-urls.txt 示例：
+> [!NOTE]
 > 将链接复制粘贴到 [`qqmusic-urls.txt`](qqmusic-urls.txt) 文件中。
 > 在新行中添加多个链接：
 > ```txt
