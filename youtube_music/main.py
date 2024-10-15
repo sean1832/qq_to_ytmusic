@@ -2,8 +2,8 @@
 # and add them to the playlist with the same name.
 import os
 from typing import List
+import json
 
-from txt_parser import FileType, TxtParser
 from ytm_ops import TYMusicOp
 
 
@@ -15,6 +15,9 @@ def scan_files(dir: str):
                 files.append(os.path.join(root, filename))
     return files
 
+def read_json(file: str):
+    with open(file, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 if __name__ == "__main__":
     # >> Change this to the directory where your JSON files are stored. Default is "data/qqmusic-raw"
@@ -22,7 +25,7 @@ if __name__ == "__main__":
     print(f"Found {len(files)} files.")
 
     for file in files:
-        qq_data = TxtParser(file, FileType.JSON).parse()
+        qq_data = read_json(file)
         tracks: List[dict] = qq_data["songs"]
         playlist_name: str = qq_data["name"]
         print(f"Processing: {playlist_name}")
