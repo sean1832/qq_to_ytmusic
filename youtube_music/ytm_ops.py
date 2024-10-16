@@ -143,11 +143,15 @@ class TYMusicOp:
         else:
             print("Aborted. No playlists were deleted.")
 
-    def remove_playlists(self, playlist_id: str):
+    def remove_playlists(self, playlist_id: str, no_confirm: bool = False):
         """Remove a playlist by its ID."""
         print(f"Deleting playlist with ID: {playlist_id}")
-        confirmation = input("Please confirm (y/n): ").lower()
-        if confirmation.startswith("y"):
+        if not no_confirm:
+            confirmation = input("Please confirm (y/n): ").lower()
+            if confirmation.startswith("y"):
+                self.api.delete_playlist(playlist_id)
+                print(f"Playlist with ID {playlist_id} deleted.")
+        else:
             self.api.delete_playlist(playlist_id)
             print(f"Playlist with ID {playlist_id} deleted.")
 
@@ -191,11 +195,12 @@ class TYMusicOp:
         for result in yt_results:
             if result.get("resultType") not in ["song", "video"]:
                 continue
-
+            album = result.get("album", {})
+            album_name = album.get("name", "") if album else ""
             yt_track = Track(
                 title=result.get("title", ""),
                 artists=[artist["name"] for artist in result.get("artists", [])],
-                album=result.get("album", {}).get("name", ""),
+                album=album_name,
                 duration=result.get("duration_seconds", 0),
                 type=result.get("resultType"),
                 id=result.get("videoId"),

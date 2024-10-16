@@ -23,7 +23,7 @@ def read_json(file: str):
 
 if __name__ == "__main__":
     # >> Change this to the directory where your JSON files are stored. Default is "data/qqmusic-raw"
-    files = scan_files("data/qqmusic-convert")
+    files = scan_files("data/qqmusic-raw")
     # files = ["data/qqmusic-convert/anime.json"]
     print(f"Found {len(files)} files.")
 
@@ -43,13 +43,16 @@ if __name__ == "__main__":
         # Search for existing playlist if exists
         playlist_id = None
         try:
-            # playlist_id = yt_op.get_playlist_id(playlist_name)
-            # print(f"Playlist '{playlist_name}' found. Appending songs...")
+            # append songs to existing playlist
             playlist_id = yt_op.get_playlist_id(playlist_name)
-            print(f"Playlist '{playlist_name}' found. Deleting playlist...")
-            yt_op.remove_playlists(playlist_id)
-            playlist_id = yt_op.create_playlist(playlist_name)
-            print(f"Playlist '{playlist_name}' re-created.")
+            print(f"Playlist '{playlist_name}' found. Appending songs...")
+            
+            # # uncomment the following line to delete the existing playlist and create a new one
+            # playlist_id = yt_op.get_playlist_id(playlist_name)
+            # print(f"Playlist '{playlist_name}' found. Deleting playlist...")
+            # yt_op.remove_playlists(playlist_id, no_confirm=True)
+            # playlist_id = yt_op.create_playlist(playlist_name)
+            # print(f"Playlist '{playlist_name}' re-created.")
         except ValueError:
             print(f"Playlist {playlist_name} not found. Creating new playlist...")
             playlist_id = yt_op.create_playlist(playlist_name)
